@@ -5,7 +5,7 @@ const uesStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
     padding: 5,
-    position: "sticky",
+    borderRadius: 0,
   },
   chip: {
     margin: 5,
@@ -14,28 +14,38 @@ const uesStyle = makeStyles((theme) => ({
 
 export default function LabelBar({ data }) {
   const [Selected, setSelected] = useState(data[0]);
-  //   console.log(data);
 
   const classes = uesStyle();
 
-  function getVariant(item) {
-    // console.log(item);
-    return item === Selected.item ? false : true;
+  function getLabel(item) {
+    if (item === Selected.item) {
+      return (
+        <Chip
+          label={item}
+          className={classes.chip}
+          onClick={() => {
+            setSelected({ item });
+          }}
+        />
+      );
+    } else {
+      return (
+        <Chip
+          label={item}
+          variant="outlined"
+          className={classes.chip}
+          onClick={() => {
+            setSelected({ item });
+          }}
+        />
+      );
+    }
   }
 
   return (
     <Paper className={classes.root}>
       {data.map((item) => (
-        <>
-          <Chip
-            label={item}
-            variant={getVariant(item)}
-            className={classes.chip}
-            onClick={() => {
-              setSelected({ item });
-            }}
-          />
-        </>
+        <>{getLabel(item)}</>
       ))}
     </Paper>
   );

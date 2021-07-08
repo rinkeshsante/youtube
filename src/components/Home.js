@@ -9,12 +9,9 @@ export default function Home() {
     "one",
     "two",
     "three",
-    "one",
-    "two",
-    "three",
-    "one",
-    "two",
-    "three",
+    "four",
+    "five",
+    "six",
   ]);
   return (
     <div>

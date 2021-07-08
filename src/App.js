@@ -13,7 +13,6 @@ import { useState } from "react";
 
 import MyDrawer from "./components/MyDrawer";
 import Main from "./components/Main";
-import Layout from "./components/Layout";
 
 const theme = createMuiTheme({
   palette: {

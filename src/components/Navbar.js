@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -64,8 +63,8 @@ export default function Navbar({ setExpandMenu, ExpandMenu }) {
       </Toolbar>
 
       <Toolbar className={classes.toolbar}>
-        <Paper>
-          <Input className={classes.input} />
+        <Paper style={{ display: "flex", alignItems: "center" }}>
+          <InputBase className={classes.input} />
           <Search className={classes.search} />
         </Paper>
 

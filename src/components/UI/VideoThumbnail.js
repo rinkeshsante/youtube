@@ -1,6 +1,6 @@
-import React from "react";
-import { Typography, makeStyles, Avatar } from "@material-ui/core";
-import { CheckCircle } from "@material-ui/icons";
+import React, { useState } from "react";
+import { Typography, makeStyles, Avatar, IconButton } from "@material-ui/core";
+import { CheckCircle, MoreVert } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 const uesStyle = makeStyles((theme) => ({
@@ -35,7 +35,10 @@ export default function VideoThumbnail() {
         <div className={classes.container}>
           <Avatar>As</Avatar>
           <div>
-            <Link to="/video">
+            <Link
+              to="/video"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               <Typography variant="h6">hader</Typography>
             </Link>
 
@@ -48,7 +51,11 @@ export default function VideoThumbnail() {
             </Typography>
           </div>
         </div>
-        <div>hi</div>
+        <div>
+          <IconButton>
+            <MoreVert />
+          </IconButton>
+        </div>
       </div>
     </div>
   );
