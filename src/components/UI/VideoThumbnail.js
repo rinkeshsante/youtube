@@ -19,35 +19,39 @@ const uesStyle = makeStyles((theme) => ({
   },
 }));
 
-export default function VideoThumbnail() {
+function dateDiff(date) {
+  const date1 = new Date(date);
+  const date2 = Date.now();
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
+
+export default function VideoThumbnail({ data }) {
   const classes = uesStyle();
   return (
     <div className={classes.root}>
-      <img
-        className={classes.img}
-        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JA2tH5nZ6gVkEUqE_Eq8mwHaEK%26pid%3DApi&f=1"
-      />
-
+      <img className={classes.img} src={data.src} />
       <div
         className={classes.container}
         style={{ justifyContent: "space-between" }}
       >
         <div className={classes.container}>
-          <Avatar>As</Avatar>
+          <Avatar>{data.channel.avatar}</Avatar>
           <div>
             <Link
-              to="/video"
+              to={`/video/${data.id}`}
               style={{ textDecoration: "none", color: "white" }}
             >
-              <Typography variant="h6">hader</Typography>
+              <Typography variant="h6">{data.header}</Typography>
             </Link>
 
             <Typography variant="caption" className={classes.alignCenter}>
-              chanel name
+              {data.channel.name}
               <CheckCircle fontSize="inherit" />
             </Typography>
             <Typography variant="caption">
-              {20000} Views - {"2 years"} ago
+              {data.views} Views - {dateDiff(data.upload_date) + " days"} ago
             </Typography>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function Main({ ExpandMenu }) {
     <div style={{ marginLeft: ExpandMenu ? 200 : 60 }}>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/video" exact component={VideoPage} />
+        <Route path="/video/:id" exact component={VideoPage} />
       </Switch>
     </div>
   );
